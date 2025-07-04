@@ -1,0 +1,62 @@
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/quasar@2.12.7/dist/quasar.prod.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet" />
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/quasar@2.12.7/dist/quasar.umd.prod.js" defer></script>
+
+  <!-- Your app logic -->
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+  <div id="app">
+    <q-layout view="hHh lpR fFf">
+      <q-header elevated class="bg-primary text-white">
+        <q-toolbar>
+          <q-toolbar-title>CDN Quasar</q-toolbar-title>
+          <q-btn label="Toggle Dark" color="primary" @click="$q.dark.toggle()"></q-btn>
+          <q-btn flat label="Hello" icon="face" @click="clicked = !clicked"/>
+        </q-toolbar>
+      </q-header>
+
+      <q-page-container>
+        <q-page class="flex-center column">
+          <h4>Welcome</h4>
+          <h6>Name is Cole, Rust Cole...</h6>
+          <p>This is a Quasar layout via CDN only!</p>
+          <q-btn label="Get Quote" color="primary" icon="thumb_up" @click="fetchQuote"></q-btn>
+
+          <!-- CARD -->
+          <q-card
+            class="my-card text-white q-mt-lg"
+            style="background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)">
+            <q-card-section>
+              <h6>Our Changing Planet</h6>
+              <div class="text-subtitle2">by {{ lorem?.author }}</div>
+            </q-card-section>
+      
+            <q-card-section class="q-pt-none self-center" style="max-width: 600px;">
+              {{ lorem?.quote }} <!-- DB Quote of the day-->
+            </q-card-section>
+          </q-card>
+
+          <!-- MODAL-->
+          <q-dialog v-model="clicked">
+            <q-card>
+              <q-card-section>
+                <div class="text-h6">Modal Title</div>
+                <div>Here is some modal content.</div>
+              </q-card-section>
+          
+              <q-card-actions>
+                <q-btn flat label="Close" color="primary" v-close-popup />
+              </q-card-actions>
+            </q-card>
+          </q-dialog>
+
+
+        </q-page>
+      </q-page-container>
+    </q-layout>
+  </div>
+</body>
