@@ -13,6 +13,7 @@ window.onload = function () {
 
   app.use(Quasar);
   app.mount('#app');
+  document.documentElement.style.visibility = 'visible'; // remove FOUC
 
 
   async function fetchQuote() {

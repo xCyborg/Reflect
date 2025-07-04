@@ -3,7 +3,10 @@
   <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet" />
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/quasar@2.12.7/dist/quasar.umd.prod.js" defer></script>
-
+  <!-- Prevent FOUC: hide body until styles are applied -->
+  <style>
+    html { visibility: hidden; }
+  </style>
   <!-- Your app logic -->
   <script src="main.js" defer></script>
 </head>
