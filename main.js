@@ -8,10 +8,12 @@ window.onload = function () {
 
   const app = createApp({
     data: appData, 
+    components: { MyComponent: window.MyComponent},
     methods: {fetchQuote}
   });
 
   app.use(Quasar);
+
   app.mount('#app');
   document.documentElement.style.visibility = 'visible'; // remove FOUC
 

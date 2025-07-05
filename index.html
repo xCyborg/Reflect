@@ -9,6 +9,7 @@
   </style>
   <!-- Your app logic -->
   <script src="main.js" defer></script>
+  <script src="MyComponent.js"></script>
 </head>
 
 <body>
@@ -24,10 +25,11 @@
 
       <q-page-container>
         <q-page class="flex-center column">
-          <h4>Welcome</h4>
-          <h6>Name is Cole, Rust Cole...</h6>
+          <div class="text-h4">Hello World!</div><br>
+          <div class="text-h6">Name is Cole, Rust Cole...</div>
           <p>This is a Quasar layout via CDN only!</p>
-          <q-btn label="Get Quote" color="primary" icon="thumb_up" @click="fetchQuote"></q-btn>
+          <q-btn label="Get Quote" color="primary" icon="thumb_up" @click="fetchQuote"></q-btn><br>
+          <my-component></my-component>
 
           <!-- CARD -->
           <q-card
@@ -47,16 +49,12 @@
           <q-dialog v-model="clicked">
             <q-card>
               <q-card-section>
-                <div class="text-h6">Modal Title</div>
-                <div>Here is some modal content.</div>
-              </q-card-section>
-          
-              <q-card-actions>
+                <div class="text-h6">The Modal</div><br>
+                <div>Here is some modal content.</div><br>
                 <q-btn flat label="Close" color="primary" v-close-popup />
               </q-card-actions>
             </q-card>
           </q-dialog>
-
 
         </q-page>
       </q-page-container>
