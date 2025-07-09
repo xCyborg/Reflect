@@ -3,15 +3,20 @@
   <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet" />
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/quasar@2.12.7/dist/quasar.umd.prod.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
   <!-- Prevent FOUC: hide body until styles are applied -->
   <style>
     html { visibility: hidden; }
   </style>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- Your app logic -->
   <script src="main.js" defer></script>
   <script src="MyComponent.js"></script>
 </head>
-
+ 
 <body>
   <div id="app">
     <q-layout view="hHh lpR fFf">
@@ -29,6 +34,7 @@
           <div class="text-h6">Name is Cole, Rust Cole...</div>
           <p>This is a Quasar layout via CDN only!</p>
           <q-btn label="Get Quote" color="primary" icon="thumb_up" @click="fetchQuote"></q-btn><br>
+          <!-- MyComponent-->
           <my-component></my-component>
 
           <!-- CARD -->
@@ -36,7 +42,7 @@
             class="my-card text-white q-mt-lg"
             style="background: radial-gradient(circle, #35a2ff 0%, #014a88 100%)">
             <q-card-section>
-              <h6>Our Changing Planet</h6>
+              <div class="text-h6">Our Changing Planet</div>
               <div class="text-subtitle2">by {{ lorem?.author }}</div>
             </q-card-section>
       

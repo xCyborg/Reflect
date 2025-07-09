@@ -1,29 +1,23 @@
-window.onload = function () {
-  const { createApp } = Vue;
+const { createApp, ref } = Vue;
 
-  const appData = () => ({
-    clicked: false, // STATE
-    lorem: null,   
-  });
+const App = {
+  components: { MyComponent },
+  setup() {
+    const clicked = ref(false);
+    const lorem = ref(null);
 
-  const app = createApp({
-    data: appData, 
-    components: { MyComponent: window.MyComponent},
-    methods: {fetchQuote}
-  });
+    async function fetchQuote() {
+      const result = await axios.get('https://api.api-ninjas.com/v1/quotes',
+        {headers: {'X-Api-Key': 'uD+lwzckMKXQfGcqRoIvjg==iQTwRGi1F2iFNLII'} });
+      lorem.value = result.data[0];
+    }
 
-  app.use(Quasar);
-
-  app.mount('#app');
-  document.documentElement.style.visibility = 'visible'; // remove FOUC
-
-
-  async function fetchQuote() {
-    console.log('fetchQuote called');
-    const res = await fetch('https://api.api-ninjas.com/v1/quotes', {
-      headers: {'X-Api-Key': 'uD+lwzckMKXQfGcqRoIvjg==iQTwRGi1F2iFNLII'}
-    });
-    const data = await res.json();
-    this.lorem = data[0];
+    return { clicked, lorem, fetchQuote};
   }
 };
+
+// Mount the app
+createApp(App).use(Quasar).mount('#app');
+
+// Optional: Remove Flash Of Unstyled Content
+document.documentElement.style.visibility = 'visible';
